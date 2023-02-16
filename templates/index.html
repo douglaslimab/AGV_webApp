@@ -3,9 +3,55 @@
     <title>Cherry Pie AGV</title>
   </head>
   <body>
-    <h1>Sensors</h1>
-    <p id="data">{{ data }}</p>
+    <div class="dashboard" id="dashboard">
+      <div class="dashboard_header" id="dashboard_header">
+        <h1>Sensors</h1>
+      </div>
+      <div class="dashboard_body" id="dashboard_body">
+        <p id="data">{{ data }}</p>
+        <div class="motor_status_header" id="motor_status_header">
+          <h2>Motors Status</h2>
+        </div>
+        <div class="motor_status" id="motor_status">
+          <div class="motor_left_header" id="motor_left_header">
+            <h3>Motor left</h3>
+          </div>
+          <div class="motor_status_left" id="motor_status_left">
+            <p>Speed:</p>
+            <p id="data">{{ data.motor_left.speed }}</p>
+            <p>Voltage:</p>
+            <p id="data">{{ data.motor_left.voltage }}</p>
+            <p>Current:</p>
+            <p id="data">{{ data.motor_left.current }}</p>
+          </div>
+
+          <div class="motor_right_header" id="motor_right_header">
+            <h3>Motor left</h3>
+          </div>
+          <div class="motor_status_right" id="motor_status_right">
+            <p>Speed:</p>
+            <p id="data">{{ data.motor_right.speed }}</p>
+            <p>Voltage:</p>
+            <p id="data">{{ data.motor_right.voltage }}</p>
+            <p>Current:</p>
+            <p id="data">{{ data.motor_right.current }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="command" id="command">
+      <div class="command_header" id="commandheader">
+        <h1>Input Data</h1>
+        <form method="POST" action="/input">
+          <label for="data">Command:</label>
+          <input type="text" id="data" name="data">
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
   </body>
+  
   <script>
     function getData(){
       var xhr = new XMLHttpRequest();
@@ -17,7 +63,7 @@
           document.getElementById("data").innerHTML = JSON.stringify(data);
         }
       };
-      
+
       xhr.send();
     }
 
