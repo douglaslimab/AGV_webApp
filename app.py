@@ -16,7 +16,6 @@ def index():
 
 @app.route('/sensors')
 def get_sensors():
-#    data = r.hget('robot_sensors', 'sonar0')
     sensors = {        
         "motor_left": {
             "speed": r.hget('robot_sensors','encoder_left').decode('utf-8'),
@@ -45,7 +44,7 @@ def get_sensors():
             r.hget('robot_sensors','sonar4').decode('utf-8'),
             r.hget('robot_sensors','sonar5').decode('utf-8')
         ]
-        }
+    }
     return  jsonify(sensors)
 
 if __name__ == '__main__':

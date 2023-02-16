@@ -26,7 +26,3 @@ while True:
             r.hset('robot_sensors', 'sonar3', values[13])
             r.hset('robot_sensors', 'sonar4', values[14])
             r.hset('robot_sensors', 'sonar5', values[15])
-
-        #r.set(f"value{i}", value)
-
-        # "sensors": Encoder
