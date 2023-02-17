@@ -17,6 +17,7 @@ def index():
 @app.route('/sensors')
 def get_sensors():
     sensors = {        
+        "timestamp": r.hget('robot_sensors', 'timestamp').decode('utf-8'),
         "motor_left": {
             "speed": r.hget('robot_sensors','encoder_left').decode('utf-8'),
             "voltage": "0",
