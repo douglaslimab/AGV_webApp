@@ -1,6 +1,7 @@
 <html>
   <head>
     <title>Cherry Pie AGV</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   </head>
   <body>
     <div class="dashboard" id="dashboard">
@@ -37,12 +38,66 @@
             <p id="data">{{ data.motor_right.current }}</p>
           </div>
         </div>
+
+        <div class="battery-status" id="battery-status">
+          <div class="battery-header" id="battery-header">
+            <h2>Battery Status</h2>
+          </div>
+          <div class="battery-body" id="battery-body">
+            <p>Voltage:</p>
+            <p id="data">{{ data.battery.voltage }}</p>
+            <p>Current:</p>
+            <p id="data">{{ data.battery.current }}</p>
+          </div>
+        </div>
+
+        <div class="sonar-data" id="sonar-data">
+          <div class="sonar-header" id="sonar-header">
+            <h2>Sonar Data</h2>
+          </div>
+          <div class="sonar-body" id="sonar-body">
+            <p>Sensor0:</p>
+            <p id="data">{{ data.sonar[0] }}</p>
+            <p>Sensor1:</p>
+            <p id="data">{{ data.sonar[1] }}</p>
+            <p>Sensor2:</p>
+            <p id="data">{{ data.sonar[2] }}</p>
+            <p>Sensor3:</p>
+            <p id="data">{{ data.sonar[3] }}</p>
+            <p>Sensor4:</p>
+            <p id="data">{{ data.sonar[4] }}</p>
+            <p>Sensor5:</p>
+            <p id="data">{{ data.sonar[5] }}</p>
+          </div>
+        </div>
+
+        <div class="accelerometer-data" id="accelerometer-data">
+          <div class="accelerometer-header" id="accelerometer-header">
+            <h2>Accelerometer Data</h2>
+          </div>
+          <div class="accelerometer-body" id="accelerometer-body">            
+            <p>x axis:</p>
+            <p id="data">{{ data.accelerometer.x }}</p>         
+            <p>y axis:</p>
+            <p id="data">{{ data.accelerometer.y }}</p>         
+            <p>z axis:</p>
+            <p id="data">{{ data.accelerometer.z }}</p>
+          </div>
+        </div>
+
+        <div class="time-box" id="time-box"> 
+          <p id="data">{{ data.timestamp }}</p>
+        </div>
       </div>
+    </div>
+
+    <div class="logger-box" id="logger-box">
+      
     </div>
 
     <div class="command" id="command">
       <div class="command_header" id="commandheader">
-        <h1>Input Data</h1>
+        <h1>Command Data</h1>
         <form method="POST" action="/input">
           <label for="data">Command:</label>
           <input type="text" id="data" name="data">
@@ -51,7 +106,7 @@
       </div>
     </div>
   </body>
-  
+
   <script>
     function getData(){
       var xhr = new XMLHttpRequest();
