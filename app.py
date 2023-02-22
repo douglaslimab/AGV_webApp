@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, request
 import requests
 import redis
 import time
@@ -47,6 +47,15 @@ def get_sensors():
         ]
     }
     return  jsonify(sensors)
+
+@app.route('/input', methods=['POST'])
+def input_data():
+    cmd = request.form['exec']
+    r.set('command', cmd)
+
+    response = requests.get("http://localhost:5000/sensors")
+    data = response.json()
+    return render_template("index.html", data=data)
 
 if __name__ == '__main__':
     app.run(debug=True)

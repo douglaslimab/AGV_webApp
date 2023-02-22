@@ -6,6 +6,10 @@ robot = serial.Serial('COM10', 115200)
 
 r = redis.Redis(host='localhost', port=6379, db=0)
 
+def writeSerial():
+    data = r.get("command")
+    robot.write(data)
+
 while True:
     line = robot.readline().decode().strip()
 
@@ -26,3 +30,5 @@ while True:
             r.hset('robot_sensors', 'sonar3', values[13])
             r.hset('robot_sensors', 'sonar4', values[14])
             r.hset('robot_sensors', 'sonar5', values[15])
+    
+    writeSerial()
