@@ -6,7 +6,8 @@
 
 body{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     flex-direction: row;
 
     padding: 2%;
@@ -16,7 +17,8 @@ body{
 
 .dashboard{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     flex-direction: row;
 
     height: 100%;
@@ -28,21 +30,38 @@ body{
 
 .motor-status{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     flex-direction: row;
+
+    width: 100%;
 
     background: #766;
 }
 
+.motor-left{
+    width: 50%
+}
+
+.motor-right{
+    width: 50%
+}
+
 .battery-body{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     flex-direction: row;
+
+    width: 100%;
+
+    background: #bbb;
 }
 
 .accelerometer-data{
     background: #333;
     height: 50%;
+    width: 100%;
 }
 
 .sonar-data{
@@ -54,7 +73,8 @@ body{
 }
 .data-trade{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
 
     height: 100%;
