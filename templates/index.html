@@ -5,37 +5,41 @@
   </head>
   <body>
     <div class="dashboard" id="dashboard">
-      <div class="dashboard_header" id="dashboard_header">
+      <div class="dashboard-header" id="dashboard-header">
         <h1>Sensors</h1>
       </div>
-      <div class="dashboard_body" id="dashboard_body">
+      <div class="dashboard-body" id="dashboard-body">
         <p id="data">{{ data }}</p>
-        <div class="motor_status_header" id="motor_status_header">
+        <div class="motor-status-header" id="motor-status-header">
           <h2>Motors Status</h2>
         </div>
-        <div class="motor_status" id="motor_status">
-          <div class="motor_left_header" id="motor_left_header">
-            <h3>Motor left</h3>
-          </div>
-          <div class="motor_status_left" id="motor_status_left">
-            <p>Speed:</p>
-            <p id="data">{{ data.motor_left.speed }}</p>
-            <p>Voltage:</p>
-            <p id="data">{{ data.motor_left.voltage }}</p>
-            <p>Current:</p>
-            <p id="data">{{ data.motor_left.current }}</p>
+        <div class="motor-status" id="motor-status">
+          <div class="motor-left" id="motor-left">
+            <div class="motor-left-header" id="motor-left-header">
+              <h3>Motor Left</h3>
+            </div>
+            <div class="motor-status-left" id="motor-status-left">
+              <p>Speed:</p>
+              <p id="data">{{ data.motor_left.speed }}</p>
+              <p>Voltage:</p>
+              <p id="data">{{ data.motor_left.voltage }}</p>
+              <p>Current:</p>
+              <p id="data">{{ data.motor_left.current }}</p>
+            </div>
           </div>
 
-          <div class="motor_right_header" id="motor_right_header">
-            <h3>Motor left</h3>
-          </div>
-          <div class="motor_status_right" id="motor_status_right">
-            <p>Speed:</p>
-            <p id="data">{{ data.motor_right.speed }}</p>
-            <p>Voltage:</p>
-            <p id="data">{{ data.motor_right.voltage }}</p>
-            <p>Current:</p>
-            <p id="data">{{ data.motor_right.current }}</p>
+          <div class="motor-right" id="motor-right">
+            <div class="motor-right-header" id="motor-right-header">
+              <h3>Motor Right</h3>
+            </div>
+            <div class="motor-status-right" id="motor-status-right">
+              <p>Speed:</p>
+              <p id="data">{{ data.motor_right.speed }}</p>
+              <p>Voltage:</p>
+              <p id="data">{{ data.motor_right.voltage }}</p>
+              <p>Current:</p>
+              <p id="data">{{ data.motor_right.current }}</p>
+            </div>
           </div>
         </div>
 
@@ -51,25 +55,6 @@
           </div>
         </div>
 
-        <div class="sonar-data" id="sonar-data">
-          <div class="sonar-header" id="sonar-header">
-            <h2>Sonar Data</h2>
-          </div>
-          <div class="sonar-body" id="sonar-body">
-            <p>Sensor0:</p>
-            <p id="data">{{ data.sonar[0] }}</p>
-            <p>Sensor1:</p>
-            <p id="data">{{ data.sonar[1] }}</p>
-            <p>Sensor2:</p>
-            <p id="data">{{ data.sonar[2] }}</p>
-            <p>Sensor3:</p>
-            <p id="data">{{ data.sonar[3] }}</p>
-            <p>Sensor4:</p>
-            <p id="data">{{ data.sonar[4] }}</p>
-            <p>Sensor5:</p>
-            <p id="data">{{ data.sonar[5] }}</p>
-          </div>
-        </div>
 
         <div class="accelerometer-data" id="accelerometer-data">
           <div class="accelerometer-header" id="accelerometer-header">
@@ -91,18 +76,40 @@
       </div>
     </div>
 
-    <div class="logger-box" id="logger-box">
-      
+    <div class="sonar-data" id="sonar-data">
+      <div class="sonar-header" id="sonar-header">
+        <h2>Sonar Data</h2>
+      </div>
+      <div class="sonar-body" id="sonar-body">
+        <p>Sensor0:</p>
+        <p id="data">{{ data.sonar[0] }}</p>
+        <p>Sensor1:</p>
+        <p id="data">{{ data.sonar[1] }}</p>
+        <p>Sensor2:</p>
+        <p id="data">{{ data.sonar[2] }}</p>
+        <p>Sensor3:</p>
+        <p id="data">{{ data.sonar[3] }}</p>
+        <p>Sensor4:</p>
+        <p id="data">{{ data.sonar[4] }}</p>
+        <p>Sensor5:</p>
+        <p id="data">{{ data.sonar[5] }}</p>
+      </div>
     </div>
 
-    <div class="command" id="command">
-      <div class="command_header" id="commandheader">
-        <h1>Command Data</h1>
-        <form method="POST" action="/input">
-          <label for="data">Command:</label>
-          <input type="text" id="data" name="data">
-          <input type="submit" value="Submit">
-        </form>
+    <div class="data-trade" id="data-trade">
+      <div class="logger-box" id="logger-box">
+        <h1>Data Log</h1>      
+      </div>
+
+      <div class="command" id="command">
+        <div class="command_header" id="commandheader">
+          <h1>Command Data</h1>
+          <form method="POST" action="/input">
+            <label for="data">Command:</label>
+            <input type="text" id="data" name="data">
+            <input type="submit" value="Submit">
+          </form>
+        </div>
       </div>
     </div>
   </body>

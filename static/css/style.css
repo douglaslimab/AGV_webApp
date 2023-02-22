@@ -3,3 +3,71 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+
+    padding: 2%;
+
+    height: 100%;
+}
+
+.dashboard{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+
+    height: 100%;
+    width: 30%;
+
+    background: #777;
+    border-radius: .5rem;
+}
+
+.motor-status{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+
+    background: #766;
+}
+
+.battery-body{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.accelerometer-data{
+    background: #333;
+    height: 50%;
+}
+
+.sonar-data{
+    height: 100%;
+    width: 50%;
+    
+    background: #667;
+    border-radius: .5rem;
+}
+.data-trade{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+
+    height: 100%;
+    width: 20%;
+    
+    background: #676;
+    border-radius: .5rem;
+}
+
+.logger-box{
+    height: 50%;
+}
+
+.command{
+    height: 50%;
+}
