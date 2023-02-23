@@ -8,7 +8,7 @@
       <div class="dashboard-header" id="dashboard-header">
       </div>
       <div class="dashboard-body" id="dashboard-body">
-        <p id="data">{{ data }}</p>
+        <p id="data" style="display: none;">{{ data }}</p>
         <div class="motor-status-header" id="motor-status-header">
           <h2>Motors Status</h2>
         </div>
@@ -19,11 +19,11 @@
             </div>
             <div class="motor-status-left" id="motor-status-left">
               <p>Speed:</p>
-              <p id="data">{{ data.motor_left.speed }}</p>
+              <p id="motor-left-speed">{{ data.motor_left.speed }}</p>
               <p>Voltage:</p>
-              <p id="data">{{ data.motor_left.voltage }}</p>
+              <p id="motor-left-voltage">{{ data.motor_left.voltage }}</p>
               <p>Current:</p>
-              <p id="data">{{ data.motor_left.current }}</p>
+              <p id="motor-left-current">{{ data.motor_left.current }}</p>
             </div>
           </div>
 
@@ -33,11 +33,11 @@
             </div>
             <div class="motor-status-right" id="motor-status-right">
               <p>Speed:</p>
-              <p id="data">{{ data.motor_right.speed }}</p>
+              <p id="motor-right-speed">{{ data.motor_right.speed }}</p>
               <p>Voltage:</p>
-              <p id="data">{{ data.motor_right.voltage }}</p>
+              <p id="motor-right-voltage">{{ data.motor_right.voltage }}</p>
               <p>Current:</p>
-              <p id="data">{{ data.motor_right.current }}</p>
+              <p id="motor-right-current">{{ data.motor_right.current }}</p>
             </div>
           </div>
         </div>
@@ -48,9 +48,9 @@
           </div>
           <div class="battery-body" id="battery-body">
             <p>Voltage:</p>
-            <p id="data">{{ data.battery.voltage }}</p>
+            <p id="battery-voltage">{{ data.battery.voltage }}</p>
             <p>Current:</p>
-            <p id="data">{{ data.battery.current }}</p>
+            <p id="battery-current">{{ data.battery.current }}</p>
           </div>
         </div>
 
@@ -61,16 +61,16 @@
           </div>
           <div class="accelerometer-body" id="accelerometer-body">            
             <p>x axis:</p>
-            <p id="data">{{ data.accelerometer.x }}</p>         
+            <p id="accelerometer-x">{{ data.accelerometer.x }}</p>         
             <p>y axis:</p>
-            <p id="data">{{ data.accelerometer.y }}</p>         
+            <p id="accelerometer-y">{{ data.accelerometer.y }}</p>         
             <p>z axis:</p>
-            <p id="data">{{ data.accelerometer.z }}</p>
+            <p id="accelerometer-z">{{ data.accelerometer.z }}</p>
           </div>
         </div>
 
         <div class="time-box" id="time-box"> 
-          <p id="data">{{ data.timestamp }}</p>
+          <p id="timestamp">{{ data.timestamp }}</p>
         </div>
       </div>
     </div>
@@ -81,17 +81,17 @@
       </div>
       <div class="sonar-body" id="sonar-body">
         <p>Sensor0:</p>
-        <p id="data">{{ data.sonar[0] }}</p>
+        <p id="sonar-0">{{ data.sonar[0] }}</p>
         <p>Sensor1:</p>
-        <p id="data">{{ data.sonar[1] }}</p>
+        <p id="sonar-1">{{ data.sonar[1] }}</p>
         <p>Sensor2:</p>
-        <p id="data">{{ data.sonar[2] }}</p>
+        <p id="sonar-2">{{ data.sonar[2] }}</p>
         <p>Sensor3:</p>
-        <p id="data">{{ data.sonar[3] }}</p>
+        <p id="sonar-3">{{ data.sonar[3] }}</p>
         <p>Sensor4:</p>
-        <p id="data">{{ data.sonar[4] }}</p>
+        <p id="sonar-4">{{ data.sonar[4] }}</p>
         <p>Sensor5:</p>
-        <p id="data">{{ data.sonar[5] }}</p>
+        <p id="sonar-5">{{ data.sonar[5] }}</p>
       </div>
     </div>
 
@@ -121,7 +121,21 @@
       xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE) {
           var data = JSON.parse(xhr.responseText);
-          document.getElementById("data").innerHTML = JSON.stringify(data);
+//          document.getElementById("data").innerHTML = JSON.stringify(data);
+          document.getElementById("motor-left-speed").innerHTML = JSON.stringify(data.motor_left.speed);
+          document.getElementById("motor-left-voltage").innerHTML = JSON.stringify(data.motor_left.voltage);
+          document.getElementById("motor-left-current").innerHTML = JSON.stringify(data.motor_left.current);
+
+          document.getElementById("motor-right-speed").innerHTML = JSON.stringify(data.motor_right.speed);
+          document.getElementById("motor-right-voltage").innerHTML = JSON.stringify(data.motor_right.voltage);
+          document.getElementById("motor-right-current").innerHTML = JSON.stringify(data.motor_right.current);
+          
+          document.getElementById("sonar-0").innerHTML = JSON.stringify(data.sonar[0]);
+          document.getElementById("sonar-1").innerHTML = JSON.stringify(data.sonar[1]);
+          document.getElementById("sonar-2").innerHTML = JSON.stringify(data.sonar[2]);
+          document.getElementById("sonar-3").innerHTML = JSON.stringify(data.sonar[3]);
+          document.getElementById("sonar-4").innerHTML = JSON.stringify(data.sonar[4]);
+          document.getElementById("sonar-5").innerHTML = JSON.stringify(data.sonar[5]);
         }
       };
 
