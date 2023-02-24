@@ -10,19 +10,20 @@ body{
     justify-content: center;
     flex-direction: row;
 
-    padding: 2%;
+    padding: 1% 0 1% 0;
 
     height: 100%;
+    width: 100%;
 }
 
-.dashboard{
+.dashboard-body{
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
 
     height: 100%;
-    width: 30%;
+    width: 100%;
 
     background: #777;
     border-radius: .5rem;
